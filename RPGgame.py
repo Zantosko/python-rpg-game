@@ -25,7 +25,7 @@ class Mage:
 
 
 
-class Potion(Mage):
+class PotionShop(Mage):
 
     def new_potion():
         print("Select Potion. ((1) Hp, (2)Strength ")
