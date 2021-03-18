@@ -7,18 +7,35 @@ class Hero:
         self.hp = hp
 
 
-class Knight():
+class Knight:
     def __init__(self, strength, defense, hp):
         self.strength = strength
         self.defense = defense
         self.hp = hp
 
 
-class Mage():
+class Mage:
     def __init__(self, strength, defense, hp):
         self.strength = strength
         self.defense = defense
         self.hp = hp
+
+    inventory = []        
+    def add_to_inventory():
+
+
+
+class PotionShop(Mage):
+
+    def new_potion():
+        print("Select Potion. ((1) Hp, (2)Strength ")
+        new_potion = ""
+    if user_choice == 1:
+        print("You have selected Hp!")
+    elif user_choice == 2:
+        print("You have selected Strength!")
+
+
 
 
 # Define New Character function
