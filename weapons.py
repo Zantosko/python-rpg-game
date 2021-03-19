@@ -54,5 +54,31 @@ while shield.durability > 0:
   else:
     pass
 
-class Staff:
-  pass
+class Staff(Warrior):
+  def __init__(self):
+    self.durability = 10
+    self.damage = 12
+    super().__init__()
+  def attributes(self):
+    self.strength += 10
+    print(f"Your strength has increased by 10 points, your strength is now {self.strength}")
+    self.defense += 5
+    print(f"Your defense has increased by 5 points, your defense is now {self.defense}")
+  def attack(self):
+    self.damage = 12
+    self.durability -= 5
+    if staff.durability == 0:
+      staff.constitution()
+    print(f"Your staff durability is now {self.durability}")
+  def constitution(self):
+    if self.durability <= 0:
+      print("Your staff has broken")
+
+staff = Staff()
+
+while staff.durability > 0:
+  to_attack = int(input("Select 1 to attack"))
+  if to_attack == 1:
+    staff.attack()
+  else:
+    pass
