@@ -83,4 +83,3 @@ while staff.durability > 0:
   else:
     pass
 
-# this is a comment
