@@ -82,3 +82,5 @@ while staff.durability > 0:
     staff.attack()
   else:
     pass
+
+# this is a comment
