@@ -85,19 +85,19 @@ class Hero:
                     print("You used the red potion")
                     print("Your HP has increased by 20 points")
                     self.hp += 20
-                    print(f"Your current HP in now: {self.hp}")
+                    print(f"Your current HP is now: {self.hp}")
                     return self.inventory.pop(item)
                 elif self.inventory[item] == "Blue Potion":
                     print("You used the blue potion")
                     print("Your HP has increased by 40 points")
                     self.hp += 40
-                    print(f"Your current HP in now: {self.hp}")
+                    print(f"Your current HP is now: {self.hp}")
                     return self.inventory.pop(item)
                 elif self.inventory[item] == "Green Potion":
                     print("You used the green potion")
                     print("Your HP has increased by 60 points")
                     self.hp += 60
-                    print(f"Your current HP in now: {self.hp}")
+                    print(f"Your current HP is now: {self.hp}")
                     return self.inventory.pop(item)
 
 
