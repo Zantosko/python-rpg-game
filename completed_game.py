@@ -47,58 +47,58 @@ class Hero:
         if potion_type == "Red":
             self.money -= 20
             print(f"You currently have {self.money} money")
-            hero.inventory.append("Red Potion")
-            hero.current_inventory()
+            self.inventory.append("Red Potion")
+            self.current_inventory()
         elif potion_type == "Blue":
             self.money -= 30
             print(f"You currently have {self.money} money")
-            hero.inventory.append("Blue Potion")
-            hero.current_inventory()
+            self.inventory.append("Blue Potion")
+            self.current_inventory()
         elif potion_type == "Green":
             self.money -= 40
             print(f"You currently have {self.money} money")
-            hero.inventory.append("Green Potion")
-            hero.current_inventory()
+            self.inventory.append("Green Potion")
+            self.current_inventory()
 
     def use_item(self):
         print("Here is your current inventory: ")
         count = 1
-        for item in hero.inventory:
+        for item in self.inventory:
             print(f"{count} : {item}")
             count += 1
 
         choice = int(input("Will you use an item? (1)Yes (2)No > "))
         if choice == 1:
-            hero.potion_select()
+            self.potion_select()
         else:
             return
 
     def potion_select(self):
         item_to_use = int(input("What item will you use? > "))
 
-        if item_to_use <= 0 or item_to_use > len(hero.inventory):
+        if item_to_use <= 0 or item_to_use > len(self.inventory):
             print("That item does not exist! Please select actual item!")
         else:
-            for item in hero.inventory:
+            for item in self.inventory:
                 item = item_to_use - 1
-                if hero.inventory[item] == "Red Potion":
+                if self.inventory[item] == "Red Potion":
                     print("You used the red potion")
                     print("Your HP has increased by 20 points")
-                    hero.hp += 20
-                    print(f"Your current HP in now: {hero.hp}")
-                    return hero.inventory.pop(item)
-                elif hero.inventory[item] == "Blue Potion":
+                    self.hp += 20
+                    print(f"Your current HP in now: {self.hp}")
+                    return self.inventory.pop(item)
+                elif self.inventory[item] == "Blue Potion":
                     print("You used the blue potion")
                     print("Your HP has increased by 40 points")
-                    hero.hp += 40
-                    print(f"Your current HP in now: {hero.hp}")
-                    return hero.inventory.pop(item)
-                elif hero.inventory[item] == "Green Potion":
+                    self.hp += 40
+                    print(f"Your current HP in now: {self.hp}")
+                    return self.inventory.pop(item)
+                elif self.inventory[item] == "Green Potion":
                     print("You used the green potion")
                     print("Your HP has increased by 60 points")
-                    hero.hp += 60
-                    print(f"Your current HP in now: {hero.hp}")
-                    return hero.inventory.pop(item)
+                    self.hp += 60
+                    print(f"Your current HP in now: {self.hp}")
+                    return self.inventory.pop(item)
 
 
 class Demon:
@@ -167,22 +167,22 @@ class Weapon:
                 f"Please select your weapon (1){self.weapons[0]}, (2){self.weapons[1]}, (3){self.weapons[2]} > "))
 
             if choice == 1:
-                print(f"You have selected the {self.weapons[0]}")
+                print(f"\nYou have selected the {self.weapons[0]}")
                 shield.attributes()
                 hero.weapon = shield
                 return
             elif choice == 2:
-                print(f"You have selected the {self.weapons[1]}")
+                print(f"\nYou have selected the {self.weapons[1]}")
                 sword.attributes()
                 hero.weapon = sword
                 return
             elif choice == 3:
-                print(f"You have selected the {self.weapons[2]}")
+                print(f"\nYou have selected the {self.weapons[2]}")
                 staff.attributes()
                 hero.weapon = staff
                 return
             else:
-                print("That is not a choice!! Please try again")
+                print("\nThat is not a choice!! Please try again")
 
     def attack_handling(self):
         if hero.weapon == shield:
@@ -213,8 +213,8 @@ class Shield(Hero):
     def attack(self):
         self.damage = 8
         self.durability -= 5
-        if sword.durability <= 0:
-            sword.constitution()
+        if self.durability <= 0:
+            self.constitution()
         else:
             print(
                 f"Your sheild durability has decreased by 5 is now {self.durability}")
@@ -241,15 +241,12 @@ class Sword(Hero):
         self.strength += 20
         print(
             f"Your strength has increased by 20 points, your strength is now {self.strength}")
-        self.defense += 10
-        print(
-            f"Your defense has increased by 10 points, your defense is now {self.defense}")
 
     def attack(self):
         self.damage = 18
         self.durability -= 1
-        if sword.durability <= 0:
-            sword.constitution()
+        if self.durability <= 0:
+            return self.constitution()
         else:
             print(
                 f"Your sword durability has decreased by 1 is now {self.durability}")
@@ -257,7 +254,7 @@ class Sword(Hero):
     def defend(self):
         self.durability -= 2
         if self.durability <= 0:
-            self.constitution()
+            return self.constitution()
         else:
             print(
                 f"Your sword durability has decreased by 2 and is now {self.durability}")
@@ -283,8 +280,8 @@ class Staff(Hero):
     def attack(self):
         self.damage = 12
         self.durability -= 1
-        if staff.durability <= 0:
-            staff.constitution()
+        if self.durability <= 0:
+            return self.constitution()
         else:
             print(
                 f"Your staff durability has decreased by 1 and is now {self.durability}")
@@ -292,7 +289,7 @@ class Staff(Hero):
     def defend(self):
         self.durability -= 1
         if self.durability <= 0:
-            self.constitution()
+            return self.constitution()
         else:
             print(
                 f"Your staff durability has decreased by 5 and is now {self.durability}")
@@ -381,7 +378,7 @@ def part_two():
             demon.take_damage()
             player_weapon.attack_handling()
             if demon.hp <= 0:
-                print("CONGRATS!! YOU JUST BEAT THE PYTHON ADVENTURE GAME!!")
+                print("\nCONGRATS!! YOU JUST BEAT THE PYTHON ADVENTURE GAME!!")
                 print(
                     "You now return to your kingdom, patiently waiting for the next call to action.")
                 end_game()
@@ -397,7 +394,7 @@ def part_two():
         elif choice == 4:
             hero.use_item()
         else:
-            print("That's not a choice!! Let's try again.")
+            print("\nThat's not a choice!! Let's try again.")
 
     end_game()
 
@@ -428,10 +425,10 @@ def transition_phase():
     if choice == 1:
         part_two()
     elif choice == 2:
-        print("The aura eventually envelops your kingdom and you disappear into darkness")
+        print("\nThe aura eventually envelops your kingdom and you disappear into darkness")
         game_over()
     else:
-        print("I'm assuming you meant to put yes, please proceed")
+        print("\nI'm assuming you meant to put yes, please proceed")
         part_two()
 
 
@@ -518,7 +515,7 @@ def start_game():
             dragon.take_damage()
             player_weapon.attack_handling()
             if dragon.hp == 0:
-                print("Victory is yours!")
+                print("\nVictory is yours!")
                 transition_phase()
         elif choice == 2:
             hero.take_damage()
@@ -532,7 +529,7 @@ def start_game():
         elif choice == 4:
             hero.use_item()
         else:
-            print("That's not a choice!! Let's try again.")
+            print("\nThat's not a choice!! Let's try again.")
 
 
 # Greeting scene before part 1 sequence

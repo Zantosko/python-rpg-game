@@ -28,4 +28,4 @@
 
   - Working with a team and utilizing separate branches to develop distinct features for the game.
   - Devloped a better understanding of how to handle merge conflicts.
-  - Understanding the importance of feature branches and we it's bad practice to work off of the main branch.
+  - Understanding the importance of feature branches and how it's bad practice to work off of the main branch.
