@@ -110,7 +110,7 @@ class Demon:
     def take_damage(self):
         self.hp -= 25
         if self.hp <= 0:
-            print("YOU DID IT!! YOU DEFEATED THE DEMON AND SAVED YOU KINGODOM!!")
+            print("YOU DID IT!! YOU DEFEATED THE DEMON AND SAVED YOUR KINGDOM!!")
         else:
             print(
                 f"You inflicted 25 damage to the demon, its health is now {self.hp}")
@@ -217,7 +217,7 @@ class Shield(Hero):
             self.constitution()
         else:
             print(
-                f"Your sheild durability has decreased by 5 is now {self.durability}")
+                f"Your shield durability has decreased by 5 is now {self.durability}")
 
     def defend(self):
         self.durability -= 0
@@ -225,7 +225,7 @@ class Shield(Hero):
             self.constitution()
         else:
             print(
-                f"Your shield durability has remains the same {self.durability}")
+                f"Your shield durability remains the same at {self.durability}")
 
     def constitution(self):
         print("Your shield has broken")
@@ -249,7 +249,7 @@ class Sword(Hero):
             return self.constitution()
         else:
             print(
-                f"Your sword durability has decreased by 1 is now {self.durability}")
+                f"Your sword durability has decreased by 1 and is now {self.durability}")
 
     def defend(self):
         self.durability -= 2
@@ -567,7 +567,7 @@ def main_menu():
     print("Once you start the game there is no going back! If you need potions now is the time to buy them!\n")
 
     choice = int(input(
-        "Choose you path brave hero (1)Start Game, (2)Potion Shop, (3)Quit Game > "))
+        "Choose your path brave hero (1)Start Game, (2)Potion Shop, (3)Quit Game > "))
 
     if choice == 1:
         start_game()
