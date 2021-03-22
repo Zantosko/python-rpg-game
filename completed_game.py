@@ -229,6 +229,7 @@ class Shield(Hero):
 
     def constitution(self):
         print("Your shield has broken")
+        game_over()
 
 
 class Sword(Hero):
@@ -261,6 +262,7 @@ class Sword(Hero):
 
     def constitution(self):
         print("Your sword has broken")
+        game_over()
 
 
 class Staff(Hero):
@@ -296,6 +298,7 @@ class Staff(Hero):
 
     def constitution(self):
         print("Your staff has broken")
+        game_over()
 
 
 # Creating instances of characters and weapons for first part of the game
